@@ -14,10 +14,15 @@
 <body>
     <div id="root"></div>
 
-    <script type="text/babel" src="Cardoriginal.js"></script>
+    <script type="text/babel" src="Card.js"></script>
     <script type="text/babel">
         ReactDOM.render(
-            <Card />,
+            <div className="row">
+                <Card title="50 Ways To Eat Your Lover" name="Paul Simon of the Lambs" image="http://lorempixel.com/400/400/food/"/>
+                <Card title="Nadja" name="Andre Breton" image="http://lorempixel.com/400/400/nightlife/"/>
+                <Card title="Lorem Ipsum" name="Dolor Sit Amet" image="https://via.placeholder.com/400"/>
+                <Card title="Fuzzy Was A(n) [x]" name="Mr. Mammal" image="http://lorempixel.com/400/400/animals/"/>
+            </div>,
             document.getElementById('root')
         );
     </script>
