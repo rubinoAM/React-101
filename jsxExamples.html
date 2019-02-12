@@ -10,6 +10,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
 <body>
-    
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const markup = <div className="row">
+                            <div className="col s2">
+                                <div className="card hoverable small">
+                                    <div className="card-image">
+                                        <img src="http://lorempixel.com/400/400/nature/" />
+                                    </div>
+                                    <div className="card-content">
+                                        <p>React From the Beginning</p>
+                                        <p>Robert Bunch</p>
+                                    </div>
+                                    <div className="card-action">
+                                        <a href="#">$9.99</a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>;
+
+        ReactDOM.render(
+            markup,
+            document.getElementById('root')
+        );
+    </script>
 </body>
 </html>
