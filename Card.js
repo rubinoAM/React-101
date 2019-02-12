@@ -5,7 +5,7 @@ function Card(props){
     const image = props.image;
     const saleOn = true;
     
-    return  <div className="col s3">
+    return  <div className="col s6 m4 l3">
                 <div className="card hoverable small">
                     <div className="card-image">
                         <img src={image} />
