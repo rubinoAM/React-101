@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Components</title>
+    <title>Props</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
@@ -13,18 +13,17 @@
 </head>
 <body>
     <div id="root"></div>
-
     <script type="text/babel" src="Card.js"></script>
     <script type="text/babel">
-        ReactDOM.render(
-            <div className="row">
-                <Card title="50 Ways To Eat Your Lover" name="Paul Simon of the Lambs" image="http://lorempixel.com/400/400/food/"/>
-                <Card title="Nadja" name="Andre Breton" image="http://lorempixel.com/400/400/nightlife/"/>
-                <Card title="Lorem Ipsum" name="Dolor Sit Amet" image="https://via.placeholder.com/400"/>
-                <Card title="Fuzzy Was A(n) [x]" name="Mr. Mammal" image="http://lorempixel.com/400/400/animals/"/>
-            </div>,
-            document.getElementById('root')
-        );
+        const app = <div className="row">
+                        <Card title="50 Ways To Eat Your Lover" name="Paul Simon of the Lambs" image="http://lorempixel.com/400/400/food/"/>
+                        <Card title="Nadja" name="André Breton" image="http://lorempixel.com/400/400/nightlife/"/>
+                        <Card title="Lorem Ipsum" name="Dolor Sit Amet" image="https://via.placeholder.com/400"/>
+                        <Card title="Fuzzy Was A(n) [x]" name="Mr. Mammal" image="http://lorempixel.com/400/400/animals/"/>
+                    </div>;
+        const root = document.getElementById('root')
+
+        ReactDOM.render(app,root);
     </script>
 </body>
 </html>
