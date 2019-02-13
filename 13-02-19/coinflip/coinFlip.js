@@ -9,7 +9,16 @@ class CoinFlip extends React.Component{
         this.state = {
             //React does care about state... a whole lot!
             image:this.coin[0]
-        }
+        };
+        this.flipCoin = this.flipCoin.bind(this);
+    }
+
+    flipCoin(){
+        // WE NEVER CHANGE/MUTATE STATE DIRECTLY! THAT'S REACT'S JOB!
+        let coinSide = Math.round(Math.random());
+        this.setState({
+            image: this.coin[coinSide]
+        });
     }
 
     //local class method
@@ -18,6 +27,8 @@ class CoinFlip extends React.Component{
         //render() always runs after the constructor
         return (
             <div className="coin-flip">
+                {/* React events are camelcased and attached to the element, so you only pass them (not invoke them) */}
+                <button className="waves-effect waves-light btn" onClick={this.flipCoin}>Flip!</button>
                 <img src={this.state.image} />
             </div>
         );
