@@ -33,7 +33,7 @@ class Avatar extends React.Component{
     constructor(props){
         super(props);
         this.name = props.name;
-        this.avatar = props.author.avatarUrl;
+        this.avatar = props.avatar;
     }
 
     render(){
@@ -46,15 +46,14 @@ class Avatar extends React.Component{
 class UserInfo extends React.Component{
     constructor(props){
         super(props);
-        this.name = props.author.name;
     }
 
     render(){
         return(
             <div className="UserInfo">
-                <Avatar src={props.author.avatarUrl} alt={this.name} />
+                <Avatar src={this.props.avatar} alt={this.props.name} />
                 <div className="UserInfo-name">
-                    {this.name}
+                    {this.props.name}
                 </div>
             </div>
         );
@@ -70,7 +69,12 @@ class CommentBody extends React.Component{
     }
 
     formatDate(date){
-        
+        // let curDate = new Date();
+        // if(date == 'Today'){
+        //     date = curDate.getDate();
+        // } else if (date == 'Two days ago'){
+        //     date = curDate.getDate();
+        // }
     }
 
     render(){
@@ -81,7 +85,7 @@ class CommentBody extends React.Component{
                     {this.text}
                 </div>
                 <div className="Comment-date">
-                    {formatDate(this.date)}
+                    {this.date}
                 </div>
             </div>
         );
@@ -107,16 +111,18 @@ class Badges extends React.Component{
     }
 }
 
-function Comment(props){
-    this.comments = props.map();
+function App(props){
+    let comments = props.data.map((comment)=>{
+        return(
+            <div className="Comment">
+                <UserInfo name={comment.author.name} avatar={comment.author.avatarUrl} />
+                <CommentBody commentHeading={comment.commentHeading} text={comment.text} date={comment.date} />
+                <Badges userBadge={comment.userBadge} />
+            </div>
+        );
+    });
 
     return(
-        this.comments.forEach(()=>{
-            <div className="Comment">
-                <UserInfo />
-                <CommentBody />
-                <Badges userBadge={props.userBadge}/>
-            </div>
-        })
+        comments
     );
 }
