@@ -25,6 +25,7 @@ class CoinFlip extends React.Component{
     //EVERY class component must have a render. Without one your app will BREAK!
     render(){
         //render() always runs after the constructor
+        //Any time the state changes, render() is called
         return (
             <div className="coin-flip">
                 {/* React events are camelcased and attached to the element, so you only pass them (not invoke them) */}
