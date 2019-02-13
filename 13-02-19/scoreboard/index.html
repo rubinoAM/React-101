@@ -7,18 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <!--Technically the <div> below is the only thing the actual DOM recognizes.-->
     <div id="root"></div>
-    
+
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-    <script src="scoreboard.js"></script>
-    <script type="text/babel">
-        //ReactDOM takes 2 args: What to render and where to render it
-        ReactDOM.render(
-            <h1>Sanity Check</h1>,
-            document.getElementById('root')
-        );
-    </script>
+    <script src="scoreboard.js" type="text/babel"></script>
 </body>
 </html>
