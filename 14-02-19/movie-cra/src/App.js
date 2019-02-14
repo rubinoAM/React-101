@@ -25,8 +25,8 @@ class App extends Component {
   }
 
   render() {
-    const posters = this.state.movieList.map((movie)=>{
-      return(<Poster />);
+    const posters = this.state.movieList.map((movie,i)=>{
+      return(<Poster key={i} movie={movie}/>);
     });
 
     return (
