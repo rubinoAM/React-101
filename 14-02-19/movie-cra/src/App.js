@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Poster from './Poster.js';
+import Poster from './Poster';
+import Navbar from './Navbar';
 import './App.css';
 
 class App extends Component {
@@ -47,7 +48,9 @@ class App extends Component {
     });
 
     return (
-      <div className="container">
+      <div>
+        <Navbar />
+        <div className="container">
         <div className="row">
           <h1>Movie App- The Quickening</h1>
           <form onSubmit={this.movieSearch}> {/* No method or action because we won't leave this page */}
@@ -56,6 +59,7 @@ class App extends Component {
           </form>
           {posters}
         </div>
+      </div>
       </div>
     );
   }
