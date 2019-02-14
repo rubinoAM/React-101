@@ -69,12 +69,18 @@ class CommentBody extends React.Component{
     }
 
     formatDate(date){
-        // let curDate = new Date();
-        // if(date == 'Today'){
-        //     date = curDate.getDate();
-        // } else if (date == 'Two days ago'){
-        //     date = curDate.getDate();
-        // }
+        let curDate = new Date();
+        let curYear = curDate.getFullYear();
+        let curMonth = curDate.getMonth() + 1;
+        let curDay = curDate.getDate();
+        //console.log(curYear,curMonth,curDay);
+        if(date == 'Today'){
+            date = curMonth + "/" + curDay + "/" + curYear;
+            return date;
+        } else if (date == 'Two days ago'){
+            date = curMonth + "/" + (curDay - 2) + "/" + curYear;
+            return date;
+        }
     }
 
     render(){
@@ -85,7 +91,7 @@ class CommentBody extends React.Component{
                     {this.text}
                 </div>
                 <div className="Comment-date">
-                    {this.date}
+                    {this.formatDate(this.date)}
                 </div>
             </div>
         );
