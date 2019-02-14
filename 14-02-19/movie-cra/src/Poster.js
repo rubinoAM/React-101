@@ -11,7 +11,7 @@ class Poster extends Component{
 
         return(
             <div className="col s3 center">
-                <a href={moviePath}><img src={imagePath}/></a>
+                <a href={moviePath}><img src={imagePath} alt={title}/></a>
                 <div className="col s12"> {/* Keeps title at the bottom of the container */}
                     {title}
                 </div>
