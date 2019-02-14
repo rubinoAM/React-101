@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Poster from './Poster.js';
 import './App.css';
 
 class App extends Component {
+  constructor(){ //We need a constructor in order to use "this"
+    super()
+    this.state = {
+      movieList:[]
+    }
+  }
+
+  componentDidMount(){
+    const url = "https://api.themoviedb.org/3/movie/now_playing?api_key=fec8b5ab27b292a68294261bb21b04a5";
+    fetch(url)
+    .then(function(response) {
+        return response.json();
+    })
+    .then((myJson)=>{
+        const results = myJson.results;
+        this.setState({
+            movieList: results
+        })
+    });
+  }
+
   render() {
+    const posters = this.state.movieList.map((movie)=>{
+      return(<Poster />);
+    });
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <div className="row">
+          <h1>Movie App- The Quickening</h1>
+          {posters}
+        </div>
       </div>
     );
   }
