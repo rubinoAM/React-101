@@ -32,11 +32,13 @@ var data = [
 class Avatar extends React.Component{
     constructor(props){
         super(props);
-        this.name = props.name;
-        this.avatar = props.avatar;
+        //console.log(props);
+        this.name = this.props.alt;
+        this.avatar = this.props.src;
     }
 
     render(){
+        //console.log(this.avatar);
         return(
             <img className="Avatar" src={this.avatar} alt={this.name} />
         );
@@ -46,12 +48,14 @@ class Avatar extends React.Component{
 class UserInfo extends React.Component{
     constructor(props){
         super(props);
+        //console.log(this.props);
+        this.avatar = this.props.avatar;
     }
 
     render(){
         return(
             <div className="UserInfo">
-                <Avatar src={this.props.avatar} alt={this.props.name} />
+                <Avatar src={this.avatar} alt={this.props.name} />
                 <div className="UserInfo-name">
                     {this.props.name}
                 </div>
