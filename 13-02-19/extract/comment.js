@@ -67,9 +67,9 @@ class UserInfo extends React.Component{
 class CommentBody extends React.Component{
     constructor(props){
         super(props);
-        this.commentHeading = props.commentHeading;
-        this.text = props.text;
-        this.date = props.date;
+        this.commentHeading = this.props.commentHeading;
+        this.text = this.props.text;
+        this.date = this.props.date;
     }
 
     formatDate(date){
@@ -105,7 +105,7 @@ class CommentBody extends React.Component{
 class Badges extends React.Component{
     constructor(props){
         super(props);
-        this.userBadge = props.userBadge;
+        this.userBadge = this.props.userBadge;
     }
 
     render(){
