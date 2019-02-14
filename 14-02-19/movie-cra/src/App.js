@@ -51,15 +51,15 @@ class App extends Component {
       <div>
         <Navbar />
         <div className="container">
-        <div className="row">
-          <h1>Movie App- The Quickening</h1>
-          <form onSubmit={this.movieSearch}> {/* No method or action because we won't leave this page */}
-            <input id='searchTerm' type="text" placeholder="Movie Title"/>
-            <button type="submit" className="btn waves-effect waves-dark">Search</button>
-          </form>
-          {posters}
+          <div className="row">
+            <h1>Movie App- The Quickening</h1>
+            <form onSubmit={this.movieSearch}> {/* No method or action because we won't leave this page */}
+              <input id='searchTerm' type="text" placeholder="Movie Title"/>
+              <button type="submit" className="btn waves-effect waves-dark">Search</button>
+            </form>
+            {posters}
+          </div>
         </div>
-      </div>
       </div>
     );
   }
