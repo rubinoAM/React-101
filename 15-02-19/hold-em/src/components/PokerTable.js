@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Deck from '../utilityClasses/Deck';
+import GameButton from './GameButtons';
 
 class PokerTable extends Component{
     constructor(){
@@ -13,9 +14,14 @@ class PokerTable extends Component{
         }
     }
 
+    prepDeck(){
+        
+    }
+
     render(){
         return(
             <div className="col-sm-12 the-table">
+                <GameButton />
             </div>
         )
     }
