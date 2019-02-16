@@ -4,7 +4,7 @@ function Card(props){ //Shows a card
 	const theCard = `/cards/${props.card}.png`;
 	return(
 		<div className="col-sm-2">
-			<img src={theCard} class="card" alt=''/>
+			<img src={theCard} className="card" alt=''/>
 		</div>
 	);
 }
