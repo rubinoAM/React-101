@@ -13,8 +13,12 @@ class PokerTable extends Component{
         this.state = {
             playersHand:['deck','deck'],
             dealersHand:['deck','deck'],
+            wager:0,
+            bankroll:500,
+            communityCard:['deck','deck','deck','deck','deck'],
         }
         this.prepDeck = this.prepDeck.bind(this);
+        this.playerBet = this.playerBet.bind(this);
     }
 
     prepDeck(){
@@ -28,15 +32,28 @@ class PokerTable extends Component{
         this.setState({
             playersHand: [card1,card3],
             dealersHand: [card2,card4],
-        })
+        });
+    }
+
+    playerBet(n){   //Sent to GameButtons and updates player bet. After their bet we call draw.
+        const newWager = this.state.wager + n;
+        const newBankroll = this.state.bankroll - n;
+        this.setState({
+            wager:newWager,
+            bankroll:newBankroll,
+        });
     }
 
     render(){
         return(
             <div className="col-sm-12 the-table">
+                <div className="row text-center">
+                    <div className="col-sm-6">Current Wager: ${this.state.wager}</div>
+                    <div className="col-sm-6">Current Bankroll: ${this.state.bankroll}</div>
+                </div>
                 <PokerHand cards={this.state.dealersHand} />
                 <PokerHand cards={this.state.playersHand} />
-                <GameButtons dealFunction={this.prepDeck}/>
+                <GameButtons dealFunction={this.prepDeck} betFunction={this.playerBet}/>
             </div>
         )
     }
