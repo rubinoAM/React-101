@@ -13,9 +13,9 @@ class PokerTable extends Component{
         this.state = {
             playersHand:['deck','deck'],
             dealersHand:['deck','deck'],
+            communityCard:['deck','deck','deck','deck','deck'],
             wager:0,
             bankroll:500,
-            communityCard:['deck','deck','deck','deck','deck'],
         }
         this.prepDeck = this.prepDeck.bind(this);
         this.playerBet = this.playerBet.bind(this);
@@ -42,6 +42,24 @@ class PokerTable extends Component{
             wager:newWager,
             bankroll:newBankroll,
         });
+        this.draw();
+    }
+
+    draw(){
+        //We need Object.assign() to make a separate copy of state
+        //You can also use {...arr} to do the same thing
+        let communityNewHand = Object.assign([],this.state.communityCard);
+        if(communityNewHand[0] == 'deck'){
+            //First Draw -> Draw three cards
+            communityNewHand = [this.cards.deck.shift(), this.cards.deck.shift(), this.cards.deck.shift()];
+        }else{
+            //Not First Draw -> Only draw one card
+            communityNewHand.push(this.cards.deck.shift());
+        }
+
+        this.setState({
+            communityCard: communityNewHand,
+        });
     }
 
     render(){
@@ -52,6 +70,7 @@ class PokerTable extends Component{
                     <div className="col-sm-6">Current Bankroll: ${this.state.bankroll}</div>
                 </div>
                 <PokerHand cards={this.state.dealersHand} />
+                <PokerHand cards={this.state.communityCard} />
                 <PokerHand cards={this.state.playersHand} />
                 <GameButtons dealFunction={this.prepDeck} betFunction={this.playerBet}/>
             </div>
