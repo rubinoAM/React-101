@@ -18,6 +18,8 @@ class PokerTable extends Component{
     }
 
     prepDeck(){
+        this.cards.createDeck();
+        this.cards.shuffleDeck();
         const card1 = this.cards.deck.shift();
         const card2 = this.cards.deck.shift();
         const card3 = this.cards.deck.shift();
